@@ -1,11 +1,16 @@
+//* Packages Import
 import React, { useState } from "react";
+
+//* Utils Import
 import { add } from "../../utils";
 
 export const StringCalculator: React.FC = () => {
+  //* State to store the input string
   const [input, setInput] = useState<string>("1,2,3");
   const [result, setResult] = useState<number>(0);
   const [error, setError] = useState<string>("");
 
+  //* Function to handle the calculation
   const handleCalculate = () => {
     try {
       setError("");

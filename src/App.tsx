@@ -1,11 +1,11 @@
-// Assets Imports
+//* Assets Imports
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 
-// Components Imports
+//* Components Imports
 import StringCalculator from "./components/StringCalculator";
 
-//Styles Imports
+//* Styles Imports
 import "./App.css";
 
 function App() {

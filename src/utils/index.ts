@@ -9,11 +9,11 @@ export const add = (numbers: string): number => {
   if (customDelimiterMatch) {
     let rawDelimiter = customDelimiterMatch[1];
     if (rawDelimiter.startsWith("[") && rawDelimiter.endsWith("]")) {
-      rawDelimiter = rawDelimiter.slice(1, -1); // Remove the brackets
+      rawDelimiter = rawDelimiter.slice(1, -1); //! Remove the brackets
     }
 
     delimiter = new RegExp(rawDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-    numbers = numbers.split("\n")[1]; // Remove delimiter definition line
+    numbers = numbers.split("\n")[1]; //! Remove delimiter definition line
   }
 
   //* Split numbers based on delimiters
