@@ -19,4 +19,13 @@ describe("String Calculator", () => {
   it("should handle an unknown number of numbers", () => {
     expect(add("1,2,3,4,5")).toBe(15);
   });
+
+  it("should handle new lines as delimiters", () => {
+    expect(add("1\n2,3")).toBe(6);
+  });
+
+  it("should support custom delimiters", () => {
+    expect(add("//;\n1;2;3")).toBe(6);
+    expect(add("//|\n4|5|6")).toBe(15);
+  });
 });
