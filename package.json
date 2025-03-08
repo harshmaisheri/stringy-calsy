@@ -44,7 +44,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "*.+(js|jsx|json|yml|yaml|ts|tsx|graphql|mdx)": [
       "eslint --fix",
       "prettier --write"
     ]

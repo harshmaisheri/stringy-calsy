@@ -19,6 +19,14 @@ export const add = (numbers: string): number => {
   //* Split numbers based on delimiters
   let numArray: number[] = numbers.split(delimiter).map(Number);
 
+  //* Filter negative numbers
+  let negatives: number[] = numArray.filter((num) => num < 0);
+
+  //* Throw an error if there are negative numbers
+  if (negatives.length) {
+    throw new Error(`Negative numbers not allowed: ${negatives.join(", ")}`);
+  }
+
   //* Return the sum of the numbers
   return numArray.reduce((sum, num) => sum + num, 0);
 };
