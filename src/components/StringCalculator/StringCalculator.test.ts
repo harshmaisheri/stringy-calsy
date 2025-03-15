@@ -40,6 +40,6 @@ describe("String Calculator", () => {
   });
 
   it("should throw and error for alphabet characters", () => {
-    expect(() => add("1,1,2,a,4,b")).toThrow("Invalid character: a, b");
+    expect(() => add("1,1,2,a,4,b")).toThrow("Alphabet are not allowed: a, b");
   });
 });
