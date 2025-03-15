@@ -9,15 +9,20 @@ export const StringCalculator: React.FC = () => {
   const [input, setInput] = useState<string>("1,2,3");
   const [result, setResult] = useState<number>(0);
   const [error, setError] = useState<string>("");
+  const [loader, setLoader] = useState<boolean>(false);
 
   //* Function to handle the calculation
   const handleCalculate = () => {
-    try {
-      setError("");
-      setResult(add(input));
-    } catch (e) {
-      setError((e as Error).message);
-    }
+    setLoader(true);
+    setTimeout(() => {
+      try {
+        setError("");
+        setResult(add(input));
+      } catch (e) {
+        setError((e as Error).message);
+      }
+      setLoader(false);
+    }, 1000);
   };
 
   return (
@@ -35,10 +40,12 @@ export const StringCalculator: React.FC = () => {
       >
         Calculate
       </button>
-      {error ? (
-        <p className="text-red-500 mt-2">{error}</p>
+      {loader ? (
+        <p className="text-red-500 mt-2">Loading...</p>
       ) : (
-        <p className="text-green-500 mt-2">Result: {result}</p>
+        <p className="text-green-500 mt-2">
+          {error ? error : <>Result: {result}</>}
+        </p>
       )}
     </div>
   );
