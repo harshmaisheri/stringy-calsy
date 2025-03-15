@@ -8,6 +8,7 @@ export const add = (numbers: string): number => {
   //* Check if the string matches the custom delimiter declaration
   if (customDelimiterMatch) {
     let rawDelimiter = customDelimiterMatch[1];
+
     if (rawDelimiter.startsWith("[") && rawDelimiter.endsWith("]")) {
       rawDelimiter = rawDelimiter.slice(1, -1); //! Remove the brackets
     }
@@ -18,6 +19,12 @@ export const add = (numbers: string): number => {
 
   //* Split numbers based on delimiters
   let numArray: number[] = numbers.split(delimiter).map(Number);
+  let alphaArray: string[] = numbers
+    .split(delimiter)
+    .filter((x) => isNaN(Number(x)));
+
+  if (alphaArray.length)
+    throw new Error(`Alphabet are not allowed: ${alphaArray.join(", ")}`);
 
   //* Filter negative numbers
   let negatives: number[] = numArray.filter((num) => num < 0);

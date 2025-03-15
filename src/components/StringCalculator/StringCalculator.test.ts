@@ -38,4 +38,8 @@ describe("String Calculator", () => {
       "Negative numbers not allowed: -1, -32, -43"
     );
   });
+
+  it("should throw and error for alphabet characters", () => {
+    expect(() => add("1,1,2,a,4,b")).toThrow("Invalid character: a, b");
+  });
 });
